@@ -1,0 +1,139 @@
+# Simple Inventory Management System
+
+Backend-only Inventory Management System built with Node.js and Express using in-memory array storage.
+
+## Features
+
+- Full inventory CRUD operations
+- Query support for category and quantity filters
+- Search inventory by item name
+- In-memory runtime data store (`let inventory = []` style)
+- Request validation middleware
+- Centralized error handling middleware
+- Modular project architecture (controllers, routes, middleware, model)
+
+## Tech Stack
+
+- Node.js
+- Express
+- dotenv
+- cors
+
+## Project Structure
+
+```text
+inventory-backend/
+├── index.js
+├── controllers/
+│   └── inventoryController.js
+├── routes/
+│   └── inventoryRoutes.js
+├── middleware/
+│   ├── validation.js
+│   └── errorHandler.js
+├── model/
+│   └── inventoryData.js
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+## Getting Started
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run in development mode:
+
+```bash
+npm run dev
+```
+
+3. Production mode:
+
+```bash
+npm start
+```
+
+Server default URL: `http://localhost:5000`
+
+## API Endpoints
+
+### Health
+
+- `GET /`
+
+### Inventory
+
+- `POST /api/inventory` - Create an item
+- `GET /api/inventory` - Get all items (supports filtering/search)
+- `GET /api/inventory/:id` - Get single item by ID
+- `PUT /api/inventory/:id` - Update item
+- `DELETE /api/inventory/:id` - Delete item
+
+## Query Parameters
+
+For `GET /api/inventory`:
+
+- `category` (string) - exact category filter (case-insensitive)
+- `quantity` (number) - exact quantity filter
+- `minQuantity` (number) - minimum quantity filter
+- `maxQuantity` (number) - maximum quantity filter
+- `search` (string) - case-insensitive name search
+
+Example:
+
+```http
+GET /api/inventory?category=electronics&minQuantity=5&search=mouse
+```
+
+## Request Body Validation
+
+### Create (`POST /api/inventory`)
+
+Required fields:
+
+```json
+{
+  "name": "Wireless Mouse",
+  "category": "Electronics",
+  "quantity": 15
+}
+```
+
+### Update (`PUT /api/inventory/:id`)
+
+At least one of:
+
+- `name`
+- `category`
+- `quantity`
+
+## Response Format
+
+Success:
+
+```json
+{
+  "success": true,
+  "data": {}
+}
+```
+
+Error:
+
+```json
+{
+  "success": false,
+  "message": "Error details"
+}
+```
+
+## Notes
+
+- Data is stored in-memory and resets whenever the server restarts.
+- No database or file-based storage is used.
