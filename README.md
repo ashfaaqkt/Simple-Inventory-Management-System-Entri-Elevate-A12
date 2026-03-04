@@ -1,9 +1,17 @@
 # Simple Inventory Management System
 
-Backend-only Inventory Management System built with Node.js and Express using in-memory array storage.
+Inventory Management System built with Node.js + Express (in-memory array storage) and a lightweight frontend UI.
+
+## Assignment Context
+
+- Program: Entri Elevate
+- Assignment: Assignment 12
+- Purpose: This project is created for study and learning purposes.
+- Credit: Ashfaaq Feroz Muhammad
 
 ## Features
 
+- Light-themed frontend design to manage inventory from browser
 - Full inventory CRUD operations
 - Query support for category and quantity filters
 - Search inventory by item name
@@ -18,12 +26,20 @@ Backend-only Inventory Management System built with Node.js and Express using in
 - Express
 - dotenv
 - cors
+- Vanilla HTML/CSS/JavaScript frontend
 
 ## Project Structure
 
 ```text
 inventory-backend/
 ├── index.js
+├── public/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+├── Screenshot/
+│   ├── Simple front end.png
+│   └── server runing sucsfly on terminal.png
 ├── controllers/
 │   └── inventoryController.js
 ├── routes/
@@ -61,11 +77,23 @@ npm start
 
 Server default URL: `http://localhost:5000`
 
+Frontend URL: `http://localhost:5000`
+
+## Frontend Preview
+
+- The project includes a light, responsive frontend served from `/`.
+- Use the UI to add, filter, search, update, and delete inventory items.
+
+## Screenshots
+
+- Frontend UI: [Simple front end.png](./Screenshot/Simple%20front%20end.png)
+- Server Running in Terminal: [server runing sucsfly on terminal.png](./Screenshot/server%20runing%20sucsfly%20on%20terminal.png)
+
 ## API Endpoints
 
 ### Health
 
-- `GET /`
+- `GET /api/health`
 
 ### Inventory
 
@@ -137,3 +165,4 @@ Error:
 
 - Data is stored in-memory and resets whenever the server restarts.
 - No database or file-based storage is used.
+- This repository is maintained as a study-purpose assignment project.

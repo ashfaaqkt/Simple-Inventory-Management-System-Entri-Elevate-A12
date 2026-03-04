@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Inventory Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <main class="page">
+      <header class="hero reveal">
+        <p class="eyebrow">Entri Elevate Assignment 12</p>
+        <h1>Simple Inventory Management System</h1>
+        <p class="subtitle">
+          frontend to manage inventory through your Express API.
+        </p>
+        <p class="credit">Built by <strong> Ashfaaq KT </strong></p>
+      </header>
+
+      <section class="panel reveal delay-1">
+        <h2>Add Inventory Item</h2>
+        <form id="addItemForm" class="form-grid">
+          <label>
+            Item Name
+            <input id="name" name="name" type="text" placeholder="Wireless Mouse" required />
+          </label>
+          <label>
+            Category
+            <input id="category" name="category" type="text" placeholder="Electronics" required />
+          </label>
+          <label>
+            Quantity
+            <input id="quantity" name="quantity" type="number" min="0" placeholder="15" required />
+          </label>
+          <button type="submit" class="btn-primary">Add Item</button>
+        </form>
+      </section>
+
+      <section class="panel reveal delay-2">
+        <h2>Search & Filter</h2>
+        <form id="filterForm" class="form-grid filter-grid">
+          <label>
+            Search Name
+            <input id="search" name="search" type="text" placeholder="mouse" />
+          </label>
+          <label>
+            Category
+            <input id="filterCategory" name="category" type="text" placeholder="electronics" />
+          </label>
+          <label>
+            Min Quantity
+            <input id="minQuantity" name="minQuantity" type="number" min="0" placeholder="0" />
+          </label>
+          <label>
+            Max Quantity
+            <input id="maxQuantity" name="maxQuantity" type="number" min="0" placeholder="100" />
+          </label>
+          <div class="button-row">
+            <button type="submit" class="btn-primary">Apply</button>
+            <button type="button" id="clearFilters" class="btn-ghost">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel reveal delay-3">
+        <div class="section-head">
+          <h2>Inventory Items</h2>
+          <button id="refreshBtn" class="btn-ghost" type="button">Refresh</button>
+        </div>
+        <p id="emptyState" class="empty-state">No items yet. Add your first item above.</p>
+        <div id="itemGrid" class="item-grid"></div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
